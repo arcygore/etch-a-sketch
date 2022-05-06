@@ -5,6 +5,18 @@ function createBoard() {
         block.className  = 'board-block';
         boardArea.appendChild(block);
     }
+    return block = document.querySelectorAll('.board-block');
 }
 
-createBoard();
+function colorChange(block) {
+    for (let i = 0; i < block.length; i++) {
+        block[i].addEventListener('mouseover', function() {
+            block[i].style.backgroundColor = 'blue';
+        })
+    }
+}
+
+
+
+let bl = createBoard();
+colorChange(bl);
