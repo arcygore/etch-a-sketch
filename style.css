@@ -4,6 +4,11 @@
     padding: 0;
 }
 
+:root {
+    --width: 400px;
+    --outline-width: 10px;
+}
+
 body {
     height: 100vh;
     width: 100vw;
@@ -15,36 +20,48 @@ body, .container {
     justify-content: center;
     align-items: center;
     font-family: sans-serif;
+    background: rgb(46, 46, 46);
+    color: white;
 }
 
-.board {
+/* .board { ----------- This is "flexbox" focused CSS, I want to use Grid (below)
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
     margin-top: 30px;
-    width: 980px;
-    height: 980px;
+    width: 800px;
+    height: 800px;
     outline: solid 10px red;
+    background-color: rgb(201, 200, 198);
+} */
+
+.board { /* Grid focused CSS I spoke about above */
+    padding: 0;
+    display: grid;
+    margin-top: 30px;
+    width: var(--width);
+    height: var(--width);
+    outline: solid var(--outline-width) red;
+    background-color: rgb(201, 200, 198);
 }
 
 .board-block {
-    display: block;
-    position: relative;
     background-color: rgb(201, 200, 198);
-    height: 125px;
-    width: 125px;
 }
 
-.drawn {
+/* .drawn { ---- Removed due to complexity
     margin: 0;
     padding: 0;
     position: relative;
-}
+} */
 
 .board-base {
     display: flex;
     background-color: red;
     color: white;
-    width: 520px;
+    width: var(--width);
+    margin-top:20px;
+    outline: solid var(--outline-width) red;    
     height: 60px;
     align-items: center;
     justify-content: space-between;
@@ -56,4 +73,17 @@ body, .container {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+}
+
+.row-select {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-input {
+    width: 50px;
 }
